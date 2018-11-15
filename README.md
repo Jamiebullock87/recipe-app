@@ -1,5 +1,7 @@
 # RecipeApp
 
+This is my course project recipe book application for the Udemy course [Angular 7 (formerly Angular 2) - The Complete Guide](https://www.udemy.com/the-complete-guide-to-angular-2/) by [Maximilian Schwarzmüller](https://www.udemy.com/the-complete-guide-to-angular-2/#instructor-1)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
 ## Development server
