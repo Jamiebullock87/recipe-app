@@ -4,13 +4,16 @@ import { DataStorageService } from '../shared/data-storage.service';
 import { Response } from '@angular/http';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  constructor(private dataStorageService: DataStorageService, private recipeService: RecipeService) {}
+  constructor(private dataStorageService: DataStorageService,
+    private recipeService: RecipeService,
+    private authService: AuthService) {}
 
   onStoreRecipes() {
     this.dataStorageService.storeRecipes()
@@ -23,13 +26,7 @@ export class HeaderComponent {
   onFetchRecipes() {
     this.dataStorageService.fetchRecipes();
   }
+  onLogout() {
+    this.authService.logout();
+  }
 }
-
-
-// onGet() {
-//   this.serverService.getServers()
-//     .subscribe(
-//       (servers: any[]) => this.servers = servers,
-//       (error) => console.log(error)
-//     );
-// }
