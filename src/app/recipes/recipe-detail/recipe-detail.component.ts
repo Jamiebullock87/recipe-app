@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Component({
@@ -14,7 +15,10 @@ export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   recipeId: number;
 
-  constructor(private recipeService: RecipeService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private recipeService: RecipeService,
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.params
