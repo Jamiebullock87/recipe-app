@@ -13,6 +13,7 @@ export class AuthService {
       .catch(
         error => console.log(error)
       );
+    this.router.navigate(['/']);
   }
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
