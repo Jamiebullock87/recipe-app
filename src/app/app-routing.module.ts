@@ -8,8 +8,8 @@ import { HomeComponent } from './core/home/home.component';
 const appRoutes: Routes = [
   // Each route mentioned here, each one will be a js object
   { path: '', component: HomeComponent },
-  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
-  { path: 'shopping-list', component: ShoppingListComponent }
+  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule', data: { animation: 'RecipesPage' } },
+  { path: 'shopping-list', component: ShoppingListComponent, data: { animation: 'ShoppingListPage' } }
   // { path: 'not-found', component: ErrorPageComponent },
   // { path: '**', redirectTo: '/not-found', pathMatch: 'full' }
 ];
