@@ -15,9 +15,9 @@ export class RecipeService {
       'My favourite burger recipe',
       'https://www.maxpixel.net/static/photo/640/Burger-Bacon-Bun-Grilled-Food-Snack-Fast-Food-500054.jpg',
       [
-        new Ingredient('Beef mince', 500),
-        new Ingredient('Pork mince', 500),
-        new Ingredient('Burger Buns', 4)
+        new Ingredient('Beef mince', 500, 'g'),
+        new Ingredient('Pork mince', 500, 'g'),
+        new Ingredient('Burger Buns', 4, 'pcs')
       ]
     ),
     new Recipe(
@@ -25,9 +25,9 @@ export class RecipeService {
       'My version of an italian classic',
       'https://upload.wikimedia.org/wikipedia/commons/7/7c/Spaghetti_and_meatballs_1.jpg',
       [
-        new Ingredient('Beef mince', 500),
-        new Ingredient('Pork mince', 500),
-        new Ingredient('Spaghetti', 100)
+        new Ingredient('Beef mince', 500, 'g'),
+        new Ingredient('Pork mince', 500, 'g'),
+        new Ingredient('Spaghetti', 100, 'g')
       ]
     )
   ];
