@@ -19,17 +19,7 @@ export class RecipeService {
         new Ingredient('Pork mince', 500, 'g'),
         new Ingredient('Burger Buns', 4, 'pcs')
       ],
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj'
+      'The method to create the recipes goes here...'
     ),
     new Recipe(
       'Spaghetti and Meatballs',
@@ -40,11 +30,7 @@ export class RecipeService {
         new Ingredient('Pork mince', 500, 'g'),
         new Ingredient('Spaghetti', 100, 'g')
       ],
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj' +
-      'Test method asfka jskfkj askjf akjsfkja kjsfkjak jskafs jkfkja jksfjkajk skjfakj sjfka kjsfkj'
+      'The method to create the recipes goes here...'
     )
   ];
 
