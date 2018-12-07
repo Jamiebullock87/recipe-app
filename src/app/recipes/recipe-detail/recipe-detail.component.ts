@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { AuthService } from 'src/app/auth/auth.service';
 
-
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
-export class RecipeDetailComponent implements OnInit {
+export class RecipeDetailComponent implements OnInit, AfterViewChecked {
   recipe: Recipe;
   recipeId: number;
+  @ViewChild('method', { read: ElementRef }) textArea: ElementRef;
 
   constructor(private recipeService: RecipeService,
     private route: ActivatedRoute,
@@ -28,6 +28,12 @@ export class RecipeDetailComponent implements OnInit {
           this.recipe = this.recipeService.getRecipeId(this.recipeId);
         }
       );
+  }
+  ngAfterViewChecked() { // sizes the text area for the method
+    const textArea = this.textArea.nativeElement;
+    textArea.style.overflow = 'hidden';
+    textArea.style.height = textArea.scrollHeight + 'px';
+    console.log(textArea.scrollHeight);
   }
 
   onAddToShoppingList() {
