@@ -14,13 +14,20 @@ import { slideInAnimation } from './router.animations';
   ]
 })
 export class AppComponent implements OnInit {
+  loadedFeature = 'recipe';
+
   ngOnInit() {
     firebase.initializeApp({
       apiKey: 'AIzaSyDUO6J3RmKV0LiupV_H2lFU3DNyzFssg7I',
       authDomain: 'jamies-recipe-app.firebaseapp.com'
     });
   }
+
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
   }
 }

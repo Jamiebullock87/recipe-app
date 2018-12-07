@@ -2,10 +2,6 @@ import * as ShoppingListActions from './shopping-list.actions';
 
 import { Ingredient } from '../../shared/ingredient.model';
 
-export interface AppState {
-  shoppingList: State;
-}
-
 export interface State {
   ingredients: Ingredient[];
   editedIngredient: Ingredient;
@@ -14,9 +10,8 @@ export interface State {
 
 const initialState: State = {
   ingredients: [
-    new Ingredient('Garlic', 2, 'Bulbs'),
-    // tslint:disable-next-line:quotemark
-    new Ingredient('Onions', 2, "no's"),
+    new Ingredient('Apples', 5, 'pc'),
+    new Ingredient('Tomatoes', 10, 'pc'),
   ],
   editedIngredient: null,
   editedIngredientIndex: -1
@@ -70,7 +65,7 @@ export function shoppingListReducer(state = initialState, action: ShoppingListAc
         editedIngredient: null,
         editedIngredientIndex: -1
       };
-      default:
-        return state;
+    default:
+      return state;
   }
 }

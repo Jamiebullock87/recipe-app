@@ -15,6 +15,4 @@ import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
     FormsModule
   ]
 })
-export class ShoppingListModule {
-
-}
+export class ShoppingListModule {}
