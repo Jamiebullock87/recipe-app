@@ -1,53 +1,63 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 
-import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
-import { AuthService } from 'src/app/auth/auth.service';
+import * as ShoppingListActions from '../../shopping-list/store/shopping-list.actions';
+import * as fromRecipe from '../store/recipe.reducers';
+import * as RecipeActions from '../store/recipe.actions';
 
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
-export class RecipeDetailComponent implements OnInit, AfterViewChecked {
-  recipe: Recipe;
-  recipeId: number;
+export class RecipeDetailComponent implements OnInit, AfterViewInit {
+  recipeState: Observable<fromRecipe.State>;
+  id: number;
   @ViewChild('method', { read: ElementRef }) textArea: ElementRef;
 
-  constructor(private recipeService: RecipeService,
-    private route: ActivatedRoute,
-    private authService: AuthService,
-    private router: Router) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private store: Store<fromRecipe.FeatureState>) {
+  }
 
   ngOnInit() {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.recipeId = +params['id'];
-          this.recipe = this.recipeService.getRecipeId(this.recipeId);
+          this.id = +params['id'];
+          this.recipeState = this.store.select('recipes');
         }
       );
   }
-  ngAfterViewChecked() { // sizes the text area for the method
+
+  ngAfterViewInit() { // sizes the text area for the method
     const textArea = this.textArea.nativeElement;
     textArea.style.overflow = 'hidden';
     textArea.style.height = textArea.scrollHeight + 'px';
-    console.log(textArea.scrollHeight);
   }
 
   onAddToShoppingList() {
-    this.recipeService.addToShoppingList(this.recipe.ingredients);
+    this.store.select('recipes')
+      .pipe(take(1))
+      .subscribe((recipeState: fromRecipe.State) => {
+        this.store.dispatch(new ShoppingListActions.AddIngredients(
+          recipeState.recipes[this.id].ingredients)
+        );
+      });
+
   }
+
   onEditRecipe() {
     this.router.navigate(['edit'], {relativeTo: this.route});
-    // this.router.navigate(['../', this.recipeId, 'edit'], {relativeTo: this.route});  more complicated version of same thing above
+    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
+
   onDeleteRecipe() {
-    this.recipeService.deleteRecipe(this.recipeId);
+    this.store.dispatch(new RecipeActions.DeleteRecipe(this.id));
     this.router.navigate(['/recipes']);
   }
-  isAuthenticated() {
-    return this.authService.isAuthenticated();
-  }
+
 }

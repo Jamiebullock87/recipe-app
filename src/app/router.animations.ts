@@ -1,6 +1,5 @@
 import {trigger, animate, style, group, query, transition, animateChild} from '@angular/animations';
-
-export const slideInAnimation = trigger('routeAnimations', [
+ export const slideInAnimation = trigger('routeAnimations', [
   transition('* => RecipesPage', [
     query(':enter, :leave', style({ position: 'fixed', width: '100%' })
       , { optional: true }),
