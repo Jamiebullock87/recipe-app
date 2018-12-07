@@ -14,9 +14,16 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
+    {{ recipe.description }}
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
     <div class="btn-group" appDropdown>
       <button
         type="button"
+        style="margin-bottom: 10px;"
         class="btn btn-primary dropdown-toggle">
         Manage Recipe <span class="caret"></span>
       </button>
@@ -30,16 +37,18 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    {{ recipe.description }}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
+    <h2>Ingredients:</h2>
     <ul class="list-group">
       <li
         class="list-group-item"
         *ngFor="let ingredient of recipe.ingredients"
-      >{{ ingredient.name }} : {{ ingredient.amount }} : {{ ingredient.unit }}</li>
+      >{{ ingredient.name }} : {{ ingredient.amount }} {{ ingredient.unit }}</li>
     </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Method:</h2>
+    <textarea readonly #method class="recipe-method" style="white-space: pre-wrap;">{{ recipe.method }}</textarea>
   </div>
 </div>

@@ -18,7 +18,8 @@ export class RecipeService {
         new Ingredient('Beef mince', 500, 'g'),
         new Ingredient('Pork mince', 500, 'g'),
         new Ingredient('Burger Buns', 4, 'pcs')
-      ]
+      ],
+      'The method to create the recipes goes here...'
     ),
     new Recipe(
       'Spaghetti and Meatballs',
@@ -28,7 +29,8 @@ export class RecipeService {
         new Ingredient('Beef mince', 500, 'g'),
         new Ingredient('Pork mince', 500, 'g'),
         new Ingredient('Spaghetti', 100, 'g')
-      ]
+      ],
+      'The method to create the recipes goes here...'
     )
   ];
 
